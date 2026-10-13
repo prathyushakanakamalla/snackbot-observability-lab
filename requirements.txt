@@ -1,0 +1,9 @@
+# Phase 0 — the app itself (no observability yet)
+groq>=0.11
+python-dotenv>=1.0
+tenacity>=8.2
+numpy>=1.26
+sentence-transformers>=3.0
+streamlit>=1.38
+fastapi>=0.110
+uvicorn>=0.29

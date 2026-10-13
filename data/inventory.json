@@ -1,0 +1,402 @@
+{
+  "as_of": "2026-10-12",
+  "unit": "cases",
+  "items": {
+    "CW-101": {
+      "name": "Crunchwell Classic Sea Salt",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 308,
+          "avg_daily_demand": 56
+        },
+        "Dallas": {
+          "on_hand": 310,
+          "avg_daily_demand": 85
+        },
+        "Fresno": {
+          "on_hand": 148,
+          "avg_daily_demand": 21
+        },
+        "Toronto": {
+          "on_hand": 192,
+          "avg_daily_demand": 83
+        }
+      }
+    },
+    "CW-102": {
+      "name": "Crunchwell Salt & Vinegar",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 1193,
+          "avg_daily_demand": 61
+        },
+        "Dallas": {
+          "on_hand": 1039,
+          "avg_daily_demand": 22
+        },
+        "Fresno": {
+          "on_hand": 76,
+          "avg_daily_demand": 42
+        },
+        "Toronto": {
+          "on_hand": 888,
+          "avg_daily_demand": 26
+        }
+      }
+    },
+    "CW-103": {
+      "name": "Crunchwell Sour Cream & Onion",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 143,
+          "avg_daily_demand": 68
+        },
+        "Dallas": {
+          "on_hand": 185,
+          "avg_daily_demand": 45
+        },
+        "Fresno": {
+          "on_hand": 869,
+          "avg_daily_demand": 85
+        },
+        "Toronto": {
+          "on_hand": 1158,
+          "avg_daily_demand": 22
+        }
+      }
+    },
+    "CW-104": {
+      "name": "Crunchwell BBQ Smokehouse",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 457,
+          "avg_daily_demand": 30
+        },
+        "Dallas": {
+          "on_hand": 126,
+          "avg_daily_demand": 89
+        },
+        "Fresno": {
+          "on_hand": 1199,
+          "avg_daily_demand": 88
+        },
+        "Toronto": {
+          "on_hand": 101,
+          "avg_daily_demand": 65
+        }
+      }
+    },
+    "CW-105": {
+      "name": "Crunchwell Jalapeno Kick (DISCONTINUED)",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 2,
+          "avg_daily_demand": 0
+        },
+        "Dallas": {
+          "on_hand": 54,
+          "avg_daily_demand": 0
+        },
+        "Fresno": {
+          "on_hand": 18,
+          "avg_daily_demand": 0
+        },
+        "Toronto": {
+          "on_hand": 9,
+          "avg_daily_demand": 0
+        }
+      }
+    },
+    "CW-110": {
+      "name": "Crunchwell Classic Sea Salt Party Size",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 241,
+          "avg_daily_demand": 84
+        },
+        "Dallas": {
+          "on_hand": 631,
+          "avg_daily_demand": 88
+        },
+        "Fresno": {
+          "on_hand": 1396,
+          "avg_daily_demand": 86
+        },
+        "Toronto": {
+          "on_hand": 211,
+          "avg_daily_demand": 38
+        }
+      }
+    },
+    "SV-201": {
+      "name": "Sol Verde Restaurant Style",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 1169,
+          "avg_daily_demand": 89
+        },
+        "Dallas": {
+          "on_hand": 762,
+          "avg_daily_demand": 39
+        },
+        "Fresno": {
+          "on_hand": 1121,
+          "avg_daily_demand": 27
+        },
+        "Toronto": {
+          "on_hand": 1155,
+          "avg_daily_demand": 23
+        }
+      }
+    },
+    "SV-202": {
+      "name": "Sol Verde Zesty Lime",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 1267,
+          "avg_daily_demand": 22
+        },
+        "Dallas": {
+          "on_hand": 1016,
+          "avg_daily_demand": 41
+        },
+        "Fresno": {
+          "on_hand": 875,
+          "avg_daily_demand": 83
+        },
+        "Toronto": {
+          "on_hand": 0,
+          "avg_daily_demand": 22
+        }
+      }
+    },
+    "SV-210": {
+      "name": "Sol Verde Medium Salsa",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 928,
+          "avg_daily_demand": 89
+        },
+        "Dallas": {
+          "on_hand": 613,
+          "avg_daily_demand": 61
+        },
+        "Fresno": {
+          "on_hand": 368,
+          "avg_daily_demand": 46
+        },
+        "Toronto": {
+          "on_hand": 167,
+          "avg_daily_demand": 46
+        }
+      }
+    },
+    "PP-301": {
+      "name": "PopPeak Butter",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 614,
+          "avg_daily_demand": 88
+        },
+        "Dallas": {
+          "on_hand": 1013,
+          "avg_daily_demand": 82
+        },
+        "Fresno": {
+          "on_hand": 1493,
+          "avg_daily_demand": 58
+        },
+        "Toronto": {
+          "on_hand": 589,
+          "avg_daily_demand": 72
+        }
+      }
+    },
+    "PP-302": {
+      "name": "PopPeak White Cheddar",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 241,
+          "avg_daily_demand": 24
+        },
+        "Dallas": {
+          "on_hand": 856,
+          "avg_daily_demand": 80
+        },
+        "Fresno": {
+          "on_hand": 700,
+          "avg_daily_demand": 36
+        },
+        "Toronto": {
+          "on_hand": 1001,
+          "avg_daily_demand": 34
+        }
+      }
+    },
+    "PP-303": {
+      "name": "PopPeak Kettle Sweet & Salty",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 80,
+          "avg_daily_demand": 68
+        },
+        "Dallas": {
+          "on_hand": 1142,
+          "avg_daily_demand": 24
+        },
+        "Fresno": {
+          "on_hand": 642,
+          "avg_daily_demand": 88
+        },
+        "Toronto": {
+          "on_hand": 1423,
+          "avg_daily_demand": 58
+        }
+      }
+    },
+    "DC-401": {
+      "name": "DipCo French Onion Dip",
+      "storage": "refrigerated",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 1217,
+          "avg_daily_demand": 59
+        },
+        "Dallas": {
+          "on_hand": 95,
+          "avg_daily_demand": 40
+        },
+        "Fresno": {
+          "on_hand": 140,
+          "avg_daily_demand": 73
+        },
+        "Toronto": {
+          "on_hand": 552,
+          "avg_daily_demand": 26
+        }
+      }
+    },
+    "DC-402": {
+      "name": "DipCo Spinach Artichoke Dip",
+      "storage": "refrigerated",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 1427,
+          "avg_daily_demand": 75
+        },
+        "Dallas": {
+          "on_hand": 124,
+          "avg_daily_demand": 23
+        },
+        "Fresno": {
+          "on_hand": 1325,
+          "avg_daily_demand": 54
+        },
+        "Toronto": {
+          "on_hand": 1395,
+          "avg_daily_demand": 88
+        }
+      }
+    },
+    "DC-403": {
+      "name": "DipCo Hummus Classic",
+      "storage": "refrigerated",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 582,
+          "avg_daily_demand": 72
+        },
+        "Dallas": {
+          "on_hand": 1369,
+          "avg_daily_demand": 64
+        },
+        "Fresno": {
+          "on_hand": 46,
+          "avg_daily_demand": 59
+        },
+        "Toronto": {
+          "on_hand": 727,
+          "avg_daily_demand": 74
+        }
+      }
+    },
+    "FW-501": {
+      "name": "Fizzwell Lime",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 1251,
+          "avg_daily_demand": 36
+        },
+        "Dallas": {
+          "on_hand": 1011,
+          "avg_daily_demand": 29
+        },
+        "Fresno": {
+          "on_hand": 446,
+          "avg_daily_demand": 22
+        },
+        "Toronto": {
+          "on_hand": 264,
+          "avg_daily_demand": 51
+        }
+      }
+    },
+    "FW-502": {
+      "name": "Fizzwell Black Cherry",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 814,
+          "avg_daily_demand": 46
+        },
+        "Dallas": {
+          "on_hand": 1016,
+          "avg_daily_demand": 65
+        },
+        "Fresno": {
+          "on_hand": 340,
+          "avg_daily_demand": 25
+        },
+        "Toronto": {
+          "on_hand": 822,
+          "avg_daily_demand": 72
+        }
+      }
+    },
+    "FW-503": {
+      "name": "Fizzwell Grapefruit",
+      "storage": "ambient",
+      "warehouses": {
+        "Columbus": {
+          "on_hand": 569,
+          "avg_daily_demand": 85
+        },
+        "Dallas": {
+          "on_hand": 881,
+          "avg_daily_demand": 32
+        },
+        "Fresno": {
+          "on_hand": 570,
+          "avg_daily_demand": 85
+        },
+        "Toronto": {
+          "on_hand": 734,
+          "avg_daily_demand": 68
+        }
+      }
+    }
+  }
+}
