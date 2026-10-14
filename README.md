@@ -4,12 +4,13 @@ A hands-on project for learning AI observability end to end: tracing, evaluation
 monitoring and debugging. SnackBot is an internal assistant for **Crunchwell Foods**, a fictional snack
 and beverage company. It answers questions from 15 internal documents and can check live inventory.
 
-We build it in phases. **Phase 0 (this version) has no observability at all**, on purpose.
+We build it in phases. **Current version: Phase 1 (tracing).** Set `TRACING=off` in `.env` to get
+Phase 0 behaviour back, or check out the `phase-0` git tag.
 
 | Phase | What you add | What you learn |
 |---|---|---|
 | **0 — Baseline** ✅ | The app itself | What it feels like to debug an LLM app blind |
-| 1 — Tracing | Arize Phoenix + OpenTelemetry/OpenInference | Read trace trees, spans, tokens, latency, sessions |
+| **1 — Tracing** ✅ | Arize Phoenix + OpenTelemetry/OpenInference | Read trace trees, spans, tokens, latency, sessions |
 | 2 — Evaluation | Golden dataset, code evals, LLM-as-judge, feedback | Measure quality instead of eyeballing it |
 | 3 — Experiments | Compare prompts, models, chunk size, top-k | Prove a change is better |
 | 4 — Monitoring | Online evals, dashboards, prompt versions, guardrails | Run it like production |
@@ -46,6 +47,7 @@ We build it in phases. **Phase 0 (this version) has no observability at all**, o
 | `snackbot/tools.py` | Tool schemas the LLM sees + Python implementations |
 | `snackbot/prompts.py` | System prompt |
 | `snackbot/llm.py` | Groq client with retries for rate limits |
+| `snackbot/tracing.py` | Phase 1: OpenTelemetry → Phoenix setup and span helpers |
 | `snackbot/agent.py` | The tool-calling loop |
 | `cli.py` / `app_streamlit.py` / `api.py` | Three ways to talk to it: terminal, web UI, HTTP |
 | `data/docs/` | The 15 knowledge-base documents |
@@ -72,11 +74,20 @@ python -m snackbot.ingest   # builds the vector index (first run downloads a ~90
 
 ## Run it
 
+Start Phoenix first in its own terminal (venv activated) and leave it running. Traces appear at
+http://localhost:6006.
+
+```powershell
+phoenix serve
+```
+
+Then, in a second terminal:
+
 ```powershell
 python cli.py                          # chat in the terminal
 streamlit run app_streamlit.py         # web chat at http://localhost:8501
 uvicorn api:app --reload               # API; try it at http://127.0.0.1:8000/docs
-python -m scripts.run_sample_questions # runs all 20 sample questions → results/phase0_answers.md
+python -m scripts.run_sample_questions # runs all 20 sample questions → results/phase1_answers.md
 ```
 
 ## Groq free tier
@@ -89,4 +100,4 @@ https://console.groq.com/settings/limits for your account.
 
 ## Next
 
-Work through `learning_notes/00_phase0_baseline.md`, then tell Claude you're ready for Phase 1.
+Work through `learning_notes/01_phase1_tracing.md` (labs 1–8), then tell Claude you're ready for Phase 2.

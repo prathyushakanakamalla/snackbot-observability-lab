@@ -1,4 +1,4 @@
-# Phase 0 — the app itself (no observability yet)
+# Phase 0 — the app itself
 groq>=0.11
 python-dotenv>=1.0
 tenacity>=8.2
@@ -7,3 +7,9 @@ sentence-transformers>=3.0
 streamlit>=1.38
 fastapi>=0.110
 uvicorn>=0.29
+
+# Phase 1 — tracing
+arize-phoenix>=12.0                       # the Phoenix server + UI (run: phoenix serve)
+arize-phoenix-otel>=0.13                  # register(): one-call OpenTelemetry setup
+openinference-instrumentation-groq>=0.1   # auto-instruments Groq calls as LLM spans
+openinference-semantic-conventions>=0.1   # the standard attribute names (span kinds, documents...)

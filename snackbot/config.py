@@ -19,6 +19,11 @@ CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "800"))        # characters
 CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "150"))  # characters
 TOP_K = int(os.getenv("TOP_K", "4"))
 
+# --- Tracing (Phase 1) ---
+TRACING = os.getenv("TRACING", "full").lower()          # off | auto | full
+PHOENIX_ENDPOINT = os.getenv("PHOENIX_ENDPOINT", "http://localhost:6006")
+PHOENIX_PROJECT = os.getenv("PHOENIX_PROJECT", "snackbot")
+
 # --- Paths ---
 DOCS_DIR = PROJECT_ROOT / "data" / "docs"
 INDEX_DIR = PROJECT_ROOT / "data" / "index"

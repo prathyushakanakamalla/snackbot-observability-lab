@@ -5,8 +5,11 @@ import json
 import operator
 from functools import lru_cache
 
+from openinference.semconv.trace import SpanAttributes
+
 from snackbot import config
 from snackbot.retriever import retrieve
+from snackbot.tracing import SpanKind, mark_error, set_output, start_span
 
 # ---------------------------------------------------------------------------
 # Tool schemas (OpenAI-compatible format, which Groq uses)
@@ -133,12 +136,39 @@ TOOL_FUNCTIONS = {
 }
 
 
+_DESCRIPTIONS = {s["function"]["name"]: s["function"]["description"] for s in TOOL_SCHEMAS}
+
+
+def _looks_like_error(result: str) -> str | None:
+    """Our tools report problems as text (so the LLM can recover). Detect that for the trace."""
+    if result.startswith("Error"):
+        return result
+    if result.startswith("{") and '"error"' in result:
+        return json.loads(result).get("error")
+    return None
+
+
 def run_tool(name: str, arguments_json: str) -> str:
     """Execute a tool call coming from the LLM. Errors are returned as text so the LLM can recover."""
-    if name not in TOOL_FUNCTIONS:
-        return f"Error: unknown tool '{name}'."
-    try:
-        args = json.loads(arguments_json or "{}")
-        return TOOL_FUNCTIONS[name](**args)
-    except Exception as exc:  # noqa: BLE001
-        return f"Error running {name}: {exc}"
+    # PHASE 1: one TOOL span per tool call, with the exact arguments the LLM chose and what came back.
+    with start_span(name, SpanKind.TOOL, input_value=arguments_json or "{}", **{
+        SpanAttributes.INPUT_MIME_TYPE: "application/json",
+        SpanAttributes.TOOL_NAME: name,
+        SpanAttributes.TOOL_DESCRIPTION: _DESCRIPTIONS.get(name, ""),
+        SpanAttributes.TOOL_PARAMETERS: arguments_json or "{}",
+    }) as span:
+        if name not in TOOL_FUNCTIONS:
+            result = f"Error: unknown tool '{name}'."
+        else:
+            try:
+                args = json.loads(arguments_json or "{}")
+                result = TOOL_FUNCTIONS[name](**args)
+            except Exception as exc:  # noqa: BLE001
+                mark_error(span, exc)  # the exception (with stack trace) is now visible in Phoenix
+                result = f"Error running {name}: {exc}"
+
+        set_output(span, result, json_output=(name == "check_inventory"))
+        problem = _looks_like_error(result)
+        if problem:
+            mark_error(span, problem)  # no crash, but the span turns red so you can find it
+        return result
