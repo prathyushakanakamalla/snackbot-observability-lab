@@ -34,6 +34,7 @@ def main():
     path = ROOT / "results" / "phase1_answers.md"
     path.write_text("\n".join(out), encoding="utf-8")
     print(f"\nSaved {path}")
+    print(f"Batch tag: {run_tag}\nNext (Phase 2):  python -m scripts.run_evals --tag {run_tag}")
 
 
 if __name__ == "__main__":

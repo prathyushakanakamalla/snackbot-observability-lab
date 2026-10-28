@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 from snackbot.agent import SnackBot
+from snackbot.feedback import log_feedback
 from snackbot.tracing import setup_tracing
 
 setup_tracing()  # PHASE 1
@@ -24,6 +25,20 @@ class ChatResponse(BaseModel):
     session_id: str
     trace_id: str | None = None  # PHASE 1: return it so a bug report can point at the exact trace
     span_id: str | None = None
+
+
+class FeedbackRequest(BaseModel):  # PHASE 2
+    span_id: str            # the span_id returned by /chat
+    thumbs_up: bool
+    comment: str | None = None
+    user_id: str | None = None
+
+
+@app.post("/feedback")
+def feedback(req: FeedbackRequest):
+    """PHASE 2: a front end calls this when the user rates an answer."""
+    ok = log_feedback(req.span_id, req.thumbs_up, req.comment, req.user_id)
+    return {"logged": ok}
 
 
 @app.get("/health")

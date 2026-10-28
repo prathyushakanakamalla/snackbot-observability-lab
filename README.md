@@ -4,14 +4,14 @@ A hands-on project for learning AI observability end to end: tracing, evaluation
 monitoring and debugging. SnackBot is an internal assistant for **Crunchwell Foods**, a fictional snack
 and beverage company. It answers questions from 15 internal documents and can check live inventory.
 
-We build it in phases. **Current version: Phase 1 (tracing).** Set `TRACING=off` in `.env` to get
+We build it in phases. **Current version: Phase 2 (evaluation).** Set `TRACING=off` in `.env` to get
 Phase 0 behaviour back, or check out the `phase-0` git tag.
 
 | Phase | What you add | What you learn |
 |---|---|---|
 | **0 — Baseline** ✅ | The app itself | What it feels like to debug an LLM app blind |
 | **1 — Tracing** ✅ | Arize Phoenix + OpenTelemetry/OpenInference | Read trace trees, spans, tokens, latency, sessions |
-| 2 — Evaluation | Golden dataset, code evals, LLM-as-judge, feedback | Measure quality instead of eyeballing it |
+| **2 — Evaluation** ✅ | Golden dataset, code evals, LLM-as-judge, feedback | Measure quality instead of eyeballing it |
 | 3 — Experiments | Compare prompts, models, chunk size, top-k | Prove a change is better |
 | 4 — Monitoring | Online evals, dashboards, prompt versions, guardrails | Run it like production |
 | 5 — Break & fix | Hidden bugs to find using only traces/evals | Real debugging skill |
@@ -48,6 +48,9 @@ Phase 0 behaviour back, or check out the `phase-0` git tag.
 | `snackbot/prompts.py` | System prompt |
 | `snackbot/llm.py` | Groq client with retries for rate limits |
 | `snackbot/tracing.py` | Phase 1: OpenTelemetry → Phoenix setup and span helpers |
+| `snackbot/evals/` | Phase 2: golden dataset loader, code evals, LLM judges, Phoenix read/write |
+| `snackbot/feedback.py` | Phase 2: thumbs up/down → HUMAN annotation |
+| `data/golden_dataset.json` | Phase 2: reference answers and expectations for the 20 sample questions |
 | `snackbot/agent.py` | The tool-calling loop |
 | `cli.py` / `app_streamlit.py` / `api.py` | Three ways to talk to it: terminal, web UI, HTTP |
 | `data/docs/` | The 15 knowledge-base documents |
@@ -88,6 +91,8 @@ python cli.py                          # chat in the terminal
 streamlit run app_streamlit.py         # web chat at http://localhost:8501
 uvicorn api:app --reload               # API; try it at http://127.0.0.1:8000/docs
 python -m scripts.run_sample_questions # runs all 20 sample questions → results/phase1_answers.md
+python -m scripts.run_evals            # Phase 2: evaluates the latest batch, logs annotations to Phoenix
+python -m scripts.judge_agreement      # Phase 2: how often the LLM judge agrees with human labels
 ```
 
 ## Groq free tier
@@ -100,4 +105,4 @@ https://console.groq.com/settings/limits for your account.
 
 ## Next
 
-Work through `learning_notes/01_phase1_tracing.md` (labs 1–8), then tell Claude you're ready for Phase 2.
+Work through `learning_notes/02_phase2_evaluation.md` (labs 1–10), then tell Claude you're ready for Phase 3.

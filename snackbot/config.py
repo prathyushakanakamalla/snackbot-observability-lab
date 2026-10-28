@@ -24,7 +24,15 @@ TRACING = os.getenv("TRACING", "full").lower()          # off | auto | full
 PHOENIX_ENDPOINT = os.getenv("PHOENIX_ENDPOINT", "http://localhost:6006")
 PHOENIX_PROJECT = os.getenv("PHOENIX_PROJECT", "snackbot")
 
+# --- Evaluation (Phase 2) ---
+# The judge must support JSON-schema structured output on Groq: the gpt-oss models do, Llama 3.3 doesn't.
+# Using a different model family from the app (Llama) also reduces "judging your own homework" bias.
+JUDGE_MODEL = os.getenv("JUDGE_MODEL", "openai/gpt-oss-120b")
+GROQ_OPENAI_BASE_URL = "https://api.groq.com/openai/v1"   # Groq's OpenAI-compatible endpoint
+
 # --- Paths ---
 DOCS_DIR = PROJECT_ROOT / "data" / "docs"
 INDEX_DIR = PROJECT_ROOT / "data" / "index"
 INVENTORY_PATH = PROJECT_ROOT / "data" / "inventory.json"
+GOLDEN_PATH = PROJECT_ROOT / "data" / "golden_dataset.json"
+RESULTS_DIR = PROJECT_ROOT / "results"
